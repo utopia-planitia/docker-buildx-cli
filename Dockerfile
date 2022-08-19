@@ -1,6 +1,6 @@
 FROM docker:20.10.17@sha256:fc6290667899ccf28586aeeb114fc8ea3121a50b014c8d33bea4f6418546e9a3 AS download
 RUN apk add curl
-ENV BUILDX_VERSION=v0.9.0
+ENV BUILDX_VERSION=v0.9.1
 RUN curl --fail -L -o /docker-buildx \
     https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.linux-amd64
 
