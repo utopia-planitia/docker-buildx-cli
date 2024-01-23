@@ -1,10 +1,10 @@
-FROM docker:25.0.0@sha256:3c5c38804aab5d3938ea3aa5be399276bbb3b8e04a5190183aa01be55641518c AS download
+FROM docker:25.0.0@sha256:90e4d6da488ff89a877655b77441891eba6a0afe9f57e5e781d6499c5f4ab666 AS download
 RUN apk add curl
 ENV BUILDX_VERSION=v0.12.1
 RUN curl --fail -L -o /docker-buildx \
     https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.linux-amd64
 
-FROM docker:25.0.0@sha256:3c5c38804aab5d3938ea3aa5be399276bbb3b8e04a5190183aa01be55641518c
+FROM docker:25.0.0@sha256:90e4d6da488ff89a877655b77441891eba6a0afe9f57e5e781d6499c5f4ab666
 RUN mkdir -p ~/.docker/cli-plugins/
 COPY --from=download /docker-buildx /root/.docker/cli-plugins/docker-buildx
 RUN chmod a+x ~/.docker/cli-plugins/docker-buildx
